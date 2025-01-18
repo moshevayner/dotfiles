@@ -1,0 +1,3 @@
+[alias]
+        done = "!f() { default_branch=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'); git checkout $default_branch && git pull && git fetch -p && git branch --merged | egrep -v "$default_branch" | xargs -n 1 git branch -d && echo && echo "====== LOCAL BRANCHES ======"  && git branch --format '%(refname:short)' | tee; }; f"
+
